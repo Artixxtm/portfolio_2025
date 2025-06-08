@@ -22,5 +22,7 @@ const Canvas = forwardRef(({ style, className, scene, children, type3D, onModelL
   return <canvas id={id} className={className}></canvas>
 })
 
+Canvas.displayName = 'Canvas';
+
 export default Canvas
 

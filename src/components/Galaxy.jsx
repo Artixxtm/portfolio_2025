@@ -1,4 +1,4 @@
-import { forwardRef, Suspense } from "react";
+import { Suspense } from "react";
 import Canvas from "./subComponents/Canvas";
 
 const Galaxy = ({galaxyRef, onModelLoaded}) => {
