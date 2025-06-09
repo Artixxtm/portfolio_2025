@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`w-full md:px-10 px-5 h-screen relative flex flex-col justify-between overflow-hidden`}
+        className={`w-full md:px-10 px-5 h-[100svh] relative flex flex-col justify-between overflow-hidden`}
         id="header"
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-full h-full z-[4] mix-blend-difference overflow-hidden">
