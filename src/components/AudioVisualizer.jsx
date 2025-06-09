@@ -1,6 +1,9 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 import gsap from "gsap";
+import useResponsive from "@/hooks/useResponsive";
 
 const LINES = 3;
 const LINE_COLOR = "#fff";
@@ -109,6 +112,8 @@ export default function AudioVisualizer() {
   const audioRef = useRef(null);
   const [play, setPlay] = useState(false);
 
+  const { isTablet } = useResponsive();
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -148,15 +153,18 @@ export default function AudioVisualizer() {
     });
   };
   return (
-    <div className="w-max flex items-end gap-3 cursor-pointer select-none" onClick={handleToggle}>
-      <div className="flex flex-col items-stretch text-right h-full">
-        <span>Music</span>
-        <span>Toggle</span>
-      </div>
+    <div
+      className="w-max flex items-end gap-3 cursor-pointer select-none"
+      onClick={handleToggle}
+    >
+      {!isTablet && (
+        <div className="flex flex-col items-stretch text-right h-full">
+          <span>Music</span>
+          <span>Toggle</span>
+        </div>
+      )}
       <div className="w-[50px] h-[50px] border-[1px] border-[#878787]/40 rounded-xl">
-        <div
-          className={`${play ? "play" : ""} w-full h-full`}
-        >
+        <div className={`${play ? "play" : ""} w-full h-full`}>
           <audio
             ref={audioRef}
             src="https://upload.wikimedia.org/wikipedia/commons/7/70/060123-John.Willinsky-The.Economics.of.Knowledge.as.a.Public.Good.ogg"

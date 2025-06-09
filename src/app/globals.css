@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -23,29 +25,28 @@
 }
 
 @font-face {
-  font-family: 'Rabenk';
-  src: url('/fonts/Rabenk-WyBOO.ttf');
+  font-family: "Rabenk";
+  src: url("/fonts/Rabenk-WyBOO.ttf");
 }
 
 @font-face {
-  font-family: 'Squares Bold';
-  src: url('/fonts/Squares Bold Free.otf');
+  font-family: "Squares Bold";
+  src: url("/fonts/Squares Bold Free.otf");
 }
 
 @font-face {
-  font-family: 'Minisystem';
-  src: url('/fonts/Minisystem.otf');
-}
-
-
-@font-face {
-  font-family: 'Rajdhani Light';
-  src: url('/fonts/rajdhani.light.ttf');
+  font-family: "Minisystem";
+  src: url("/fonts/Minisystem.otf");
 }
 
 @font-face {
-  font-family: 'Rajdhani Medium';
-  src: url('/fonts/rajdhani.medium.ttf');
+  font-family: "Rajdhani Light";
+  src: url("/fonts/rajdhani.light.ttf");
+}
+
+@font-face {
+  font-family: "Rajdhani Medium";
+  src: url("/fonts/rajdhani.medium.ttf");
 }
 
 body {
@@ -69,20 +70,19 @@ body {
 .clipCustom {
   clip-path: polygon(0% 10%, 0% 100%, 100% 100%, 100% 0%, 60% 0%, 60% 10%);
 }
-.parent
-{
-    filter: url('#flt_tag');
+.parent {
+  filter: url("#flt_tag");
 }
 
 .flt_svg {
-  visibility: hidden; 
+  visibility: hidden;
   position: absolute;
   width: 0px;
   height: 0px;
 }
 
 .customBg::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   position: absolute;
@@ -103,12 +103,11 @@ body {
 }
 
 .customTransitionShow {
-  transition: all .75s ease-in-out;
+  transition: all 0.75s ease-in-out;
 }
 
-
 .customTransitionShow2 {
-  transition: all .75s ease-in-out .3s;
+  transition: all 0.75s ease-in-out 0.3s;
 }
 
 .mainFont2 {
@@ -116,12 +115,12 @@ body {
 }
 
 .mainFont3 {
-  font-family: 'Zen Dots', cursive;
+  font-family: "Zen Dots", cursive;
   font-weight: 300;
 }
 
 #header {
-  --opacityBefore: 1
+  --opacityBefore: 1;
 }
 
 /* #header::before {
@@ -139,7 +138,7 @@ body {
 } */
 
 #header::after {
-  content: '';
+  content: "";
   opacity: 0;
   position: absolute;
   inset: 0;
@@ -156,17 +155,15 @@ body {
 }
 
 .fontMain4 {
-  font-family: 'Minisystem';
+  font-family: "Minisystem";
 }
-
 
 .fontMain5 {
-  font-family: 'Rajdhani Light';
+  font-family: "Rajdhani Light";
 }
 
-
 .fontMain6 {
-  font-family: 'Rajdhani Medium';
+  font-family: "Rajdhani Medium";
 }
 
 nav.showNav1 {
@@ -199,4 +196,20 @@ audio {
 
 .customShadow {
   /* filter: drop-shadow(-40px 20px 40px #000000a3); */
+}
+
+.animateBreath {
+  animation: breath 5s ease 0.05s infinite;
+}
+
+@keyframes breath {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

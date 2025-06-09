@@ -1,11 +1,13 @@
 "use client";
-import Header from "@/sections/Header";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis } from "../libs/lenis";
-import Nav from "@/components/Nav";
 import useRandom from "@/hooks/useRandom";
+import dynamic from "next/dynamic";
+
+const Nav = dynamic(() => import("@/components/Nav"), {ssr: false});
+const Header = dynamic(() => import("@/sections/Header"), {ssr: false});
 
 gsap.registerPlugin(ScrollTrigger);
 
