@@ -13,7 +13,7 @@ const Nav = () => {
   return (
     <>
       <nav
-        className={`fixed left-0 w-full h-auto md:bottom-8 bottom-4 flex customTransitionShow2 justify-between z-[100] md:px-10 px-5 fontMain5 mix-blend-difference`}
+        className={`fixed left-0 w-full h-auto md:bottom-8 bottom-4 flex customTransitionShow2 justify-between z-[100] md:px-10 px-5 fontMain5`}
       >
         <div className="w-full flex flex-col items-start justify-end fontMain5">
           <a href="#">From</a>
@@ -35,9 +35,9 @@ const Nav = () => {
       </nav>
 
       <nav
-        className={`fixed left-0 w-full h-auto md:top-8 top-4 flex customTransitionShow2 justify-between lg:items-start items-center z-[100] md:px-10 px-5 fontMain5 mix-blend-difference`}
+        className={`fixed left-0 w-full h-auto md:top-8 top-4 flex customTransitionShow2 justify-between lg:items-start items-center z-[100] md:px-10 px-5 fontMain5`}
       >
-        <div className="flex w-full gap-8">
+        <div className="flex lg:w-full w-max gap-8">
           <div className="lg:flex hidden flex-col">
             <a href="https://www.instagram.com/artixxtm/" target="_blank">
               Instagram
@@ -54,7 +54,7 @@ const Nav = () => {
           <h2 className="fontMain6">Artem Naumenko</h2>
           <p>Artixx™</p>
         </div>
-        <div className="flex w-full justify-end gap-8">
+        <div className="flex lg:w-full w-max justify-end gap-8">
           <p className="lg:flex hidden">open for freelance \ work</p>
           <div className="lg:flex hidden flex-col text-right">
             <a href="https://www.linkedin.com/in/artixx/" target="_blank">
