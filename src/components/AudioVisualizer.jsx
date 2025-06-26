@@ -127,6 +127,8 @@ export default function AudioVisualizer() {
 
     resizeObserver.observe(canvas.parentNode);
 
+    audioRef.current.volume = 0.4;
+
     const raf = (t) => {
       audioWave.draw(t * 0.001);
       requestAnimationFrame(raf);
@@ -163,11 +165,12 @@ export default function AudioVisualizer() {
           <span>Toggle</span>
         </div>
       )}
-      <div className="w-[50px] h-[50px] border-[1px] border-[#878787]/40 rounded-xl">
+      <div className="w-[50px] h-[50px] border-[1px] border-[#878787]/40 hover:bg-[#131313] transition-colors duration-300 rounded-xl">
         <div className={`${play ? "play" : ""} w-full h-full`}>
           <audio
             ref={audioRef}
-            src="https://upload.wikimedia.org/wikipedia/commons/7/70/060123-John.Willinsky-The.Economics.of.Knowledge.as.a.Public.Good.ogg"
+            loop
+            src="/sfx/bgMusic.mp3"
           />
           <canvas
             ref={canvasRef}

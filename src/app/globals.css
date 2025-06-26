@@ -24,6 +24,17 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px;
+  background: #131313;
+  border-radius: 2px;
+}
+
 @font-face {
   font-family: "Rabenk";
   src: url("/fonts/Rabenk-WyBOO.ttf");
@@ -51,12 +62,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(0, 0, 0);
+  background: #000;
 }
 
 /* rgb(13, 2, 23) */
@@ -211,5 +217,86 @@ audio {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem 1.25rem;
+  background: #121212;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+
+.menu-copy {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-link-item {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.type-tiny,
+.cdawrap {
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-variation-settings: "wght" 400;
+}
+
+.content--full {
+	display: grid;
+	/* height: 100vh; */
+	place-items: center;
+	grid-template-areas: 'main';
+	grid-template-rows: 100%;
+	grid-template-columns: 100%;
+}
+
+.grid__img {
+	background-size: contain;
+	background-position: 50% 50%;
+  background-repeat: no-repeat;
+	pointer-events: none;
+	will-change: transform;
+	transform: translateZ(0.1px);
+}
+
+.grid--columns .grid__img {
+	height: min-content;
+	aspect-ratio: 2 / 3;
+}
+
+@media (min-width: 768px) {
+  #projects .grid--columns {
+    grid-template-areas:
+      "text-left image text-right" !important;
+  }
+}
+
+.grid--custom {
+  display: grid;
+  grid-template-areas:
+    "text-left"
+    "image"
+    "text-right";
+}
+
+@media (min-width: 768px) {
+  .grid--custom {
+    grid-template-areas: "text-left image text-right";
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -3,11 +3,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ReactLenis } from "../libs/lenis";
-import useRandom from "@/hooks/useRandom";
 import dynamic from "next/dynamic";
 
-const Nav = dynamic(() => import("@/components/Nav"), {ssr: false});
-const Header = dynamic(() => import("@/sections/Header"), {ssr: false});
+const Nav = dynamic(() => import("@/components/Nav"), { ssr: false });
+const PageWrapper = dynamic(() => import("@/components/PageWrapper"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,7 +29,6 @@ const layouts = [
 export default function Home() {
   const lenisRef = useRef();
 
-  
   // const { local, result } = useRandom(layouts);
 
   useEffect(() => {
@@ -54,9 +52,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-
-    })
+    const ctx = gsap.context(() => {});
 
     return () => {
       ctx.revert();
@@ -81,10 +77,12 @@ export default function Home() {
       >
         <Nav />
 
-        <div className="content-holder">
-          <Header />
-        </div>
+        <div className="content-holder w-full h-auto relative">
+          <PageWrapper />
+          {/* <div className="w-screen h-[70vh] relative"></div> */}
 
+          <div className="w-full h-[100vh] bg-white relative"></div>
+        </div>
       </ReactLenis>
     </>
   );

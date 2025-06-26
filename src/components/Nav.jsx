@@ -1,19 +1,230 @@
-"use client"
+"use client";
 
 import useResponsive from "@/hooks/useResponsive";
 import dynamic from "next/dynamic";
-import React from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { SiMaildotru, SiFitbit } from "react-icons/si";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { usePathname } from "next/navigation";
+import DecryptedText from "./DecryptedText";
 
-const AudioVisualizer = dynamic(() => import("./AudioVisualizer"), {ssr: false});
+const AudioVisualizer = dynamic(() => import("./AudioVisualizer"), {
+  ssr: false,
+});
+
+const menuLinks = [
+  { path: "/projects", label: "Projects" },
+  { path: "/about", label: "About" },
+  { path: "/life", label: "Life" },
+  { path: "/contact", label: "Contact" },
+];
 
 const Nav = () => {
-  const {isTablet} = useResponsive();
+  const { isTablet, isSmallMobile } = useResponsive();
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const container = useRef();
+  const tl = useRef();
+
+  useGSAP(
+    () => {
+      if (isTablet) {
+        gsap.set(".menu-link-item-holder", { y: 75 });
+
+        tl.current = gsap
+          .timeline({ paused: true })
+          .to(".menu-overlay", {
+            duration: 1.25,
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "power4.inOut",
+          })
+          .to(".menu-link-item-holder", {
+            y: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power4.inOut",
+            delay: -0.75,
+          });
+      }
+    },
+    { scope: container }
+  );
+
+  const closeMenuOnInternalLink = useCallback((path) => {
+    if (path?.startsWith("/")) setIsMenuOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (isTablet) {
+      if (isMenuOpen) tl.current.play();
+      else tl.current.reverse();
+    }
+  }, [isMenuOpen]);
+
+  const textSizeClass = useMemo(
+    () => (isSmallMobile ? "text-4xl" : "text-5xl"),
+    [isSmallMobile]
+  );
 
   return (
     <>
-      <nav
-        className={`fixed left-0 w-full h-auto md:bottom-8 bottom-4 flex customTransitionShow2 justify-between z-[100] md:px-10 px-5 fontMain5`}
+      {isTablet ? (
+        <motion.div
+          ref={container}
+          className="fixed z-[1000] inset-0 w-full"
+          initial={{ height: "48px", top: "10px" }}
+          animate={
+            isMenuOpen
+              ? { height: "100svh", top: "0px" }
+              : { height: "48px", top: "16px" }
+          }
+          exit={{ height: "48px", top: "16px" }}
+        >
+          <motion.nav
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.4,
+              ease: [0.77, 0, 0.175, 1],
+            }}
+            className={`fixed left-0 w-full h-auto md:top-8 top-4 flex justify-between lg:items-start items-center z-[100] md:px-10 px-5 fontMain5 mix-blend-difference`}
+          >
+            <div className="flex lg:w-full w-max gap-8">
+              <a href="mailto:officalwoolf@gmail.com" target="_blank">
+                  <SiMaildotru size={26} />
+              </a>
+            </div>
+            <div className="flex flex-col items-center w-full">
+              <h2 className="fontMain6">Artem Naumenko</h2>
+              <p>Artixx™</p>
+            </div>
+            <div className="flex lg:w-full w-max justify-end gap-8">
+              <motion.button
+                initial={{ rotate: "0deg" }}
+                animate={isMenuOpen ? { rotate: "-90deg" } : { rotate: "0deg" }}
+                transition={{
+                  duration: 0.55,
+                  ease: [1, 0.01, 0.28, 1],
+                }}
+                className="h-max lg:hidden flex"
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+              >
+                <SiFitbit size={26} />
+              </motion.button>
+            </div>
+          </motion.nav>
+
+          <div className="menu-overlay">
+            <div className="menu-copy relative top-[-40px] overflow-hidden">
+              <div className="menu-links flex flex-col items-center gap-8 w-full">
+                <AnimatePresence>
+                  {menuLinks.map((link, index) => (
+                    <div className="menu-link-item w-full" key={index}>
+                      <div className="menu-link-item-holder text-white w-full">
+                        <Link
+                          href={link.path}
+                          target={link.target ?? null}
+                          className="flex items-center w-full relative"
+                          onClick={() => closeMenuOnInternalLink(link.path)}
+                        >
+                          {pathname === link.path && (
+                            <motion.span
+                              initial={{ x: "-38px", opacity: 0 }}
+                              animate={{ x: "0px", opacity: 1 }}
+                              exit={{ x: "-38px", opacity: 0 }}
+                              transition={{
+                                duration: 0.25,
+                                ease: [1, 0.01, 0.28, 1],
+                              }}
+                              key={"indicator"}
+                              className={`mainFont2 absolute top-0 left-0 ${textSizeClass} text-left uppercase font-[600] mr-3`}
+                            >
+                              /
+                            </motion.span>
+                          )}
+                          <motion.span
+                            initial={{ x: "0px" }}
+                            animate={
+                              pathname === link.path
+                                ? { x: "38px" }
+                                : { x: "0px" }
+                            }
+                            exit={{ x: "0px" }}
+                            transition={{ duration: 0.2 }}
+                            className={`mainFont2 ${textSizeClass} w-full text-center uppercase font-[600]`}
+                          >
+                            {link.label}
+                          </motion.span>
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ) : (
+        <motion.nav
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.4,
+            ease: [0.77, 0, 0.175, 1],
+          }}
+          className={`fixed left-0 w-full h-auto md:top-8 top-4 flex justify-between lg:items-start items-center z-[100] md:px-10 px-5 fontMain5`}
+        >
+          <div className="flex lg:w-full w-max gap-8">
+            <div className="lg:flex hidden flex-col">
+              <a href="https://www.instagram.com/artixxtm/" target="_blank">
+                <DecryptedText text="Instagram" animateOn="hover" />
+              </a>
+              <a href="https://t.me/artixxtm/" target="_blank">
+                <DecryptedText text="Telegram" animateOn="hover" />
+              </a>
+            </div>
+            <a href="mailto:officalwoolf@gmail.com" target="_blank">
+              <DecryptedText text="officalwoolf@gmail.com" animateOn="hover" />
+            </a>
+          </div>
+          <div className="flex flex-col items-center w-full">
+            <h2 className="fontMain6">Artem Naumenko</h2>
+            <p>Artixx™</p>
+          </div>
+          <div className="flex w-full justify-end gap-8">
+            <p className="flex cursor-default"><DecryptedText text="open for freelance \ work" animateOn="hover" /></p>
+            <div className="flex flex-col text-right">
+              <a href="https://www.linkedin.com/in/artixx/" target="_blank">
+                <DecryptedText text="LinkedIn" animateOn="hover" />
+              </a>
+              <a href="https://github.com/Artixxtm/" target="_blank">
+                <DecryptedText text="GitHub" animateOn="hover" />
+              </a>
+            </div>
+            <button className="h-max lg:hidden flex">
+              <SiFitbit size={26} />
+            </button>
+          </div>
+        </motion.nav>
+      )}
+
+      <motion.nav
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.4,
+          ease: [0.77, 0, 0.175, 1],
+        }}
+        className={`fixed left-0 w-full h-auto md:bottom-8 bottom-4 flex justify-between z-[1001] md:px-10 px-5 fontMain5`}
       >
         <div className="w-full flex flex-col items-start justify-end fontMain5">
           <a href="#">From</a>
@@ -22,51 +233,18 @@ const Nav = () => {
 
         <div className="w-full lg:flex hidden items-end justify-center uppercase h-full gap-8 fontMain6">
           <div className="flex w-auto items-center justify-center gap-8 bg-[rgb(25,25,25,.75)] border-[1px] border-[#878787]/10 backdrop-blur-md py-4 px-10 rounded-xl">
-            <a href="#">Projects</a>
-            <a href="#">About</a>
-            <a href="#">Life</a>
-            <a href="#">Contact</a>
+            {menuLinks.map((link, index) => (
+              <Link href={link.path} key={index}>
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
 
         <div className="w-full flex items-end justify-end content-end h-full fontMain5 opacity-90">
           <AudioVisualizer />
         </div>
-      </nav>
-
-      <nav
-        className={`fixed left-0 w-full h-auto md:top-8 top-4 flex customTransitionShow2 justify-between lg:items-start items-center z-[100] md:px-10 px-5 fontMain5`}
-      >
-        <div className="flex lg:w-full w-max gap-8">
-          <div className="lg:flex hidden flex-col">
-            <a href="https://www.instagram.com/artixxtm/" target="_blank">
-              Instagram
-            </a>
-            <a href="https://t.me/artixxtm/" target="_blank">
-              Telegram
-            </a>
-          </div>
-          <a href="mailto:officalwoolf@gmail.com" target="_blank">
-            {!isTablet ? "officalwoolf@gmail.com" : <SiMaildotru size={26} />}
-          </a>
-        </div>
-        <div className="flex flex-col items-center w-full">
-          <h2 className="fontMain6">Artem Naumenko</h2>
-          <p>Artixx™</p>
-        </div>
-        <div className="flex lg:w-full w-max justify-end gap-8">
-          <p className="lg:flex hidden">open for freelance \ work</p>
-          <div className="lg:flex hidden flex-col text-right">
-            <a href="https://www.linkedin.com/in/artixx/" target="_blank">
-              LinkedIn
-            </a>
-            <a href="https://github.com/Artixxtm/" target="_blank">
-              GitHub
-            </a>
-          </div>
-          <button className="h-max lg:hidden flex"><SiFitbit size={26} /></button>
-        </div>
-      </nav>
+      </motion.nav>
     </>
   );
 };
