@@ -225,7 +225,7 @@ audio {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100svh;
   padding: 4.5rem 1.25rem;
   padding-bottom: 5rem;
   background: #121212;
