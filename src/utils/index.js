@@ -154,17 +154,54 @@ export const projects = [
     ],
   },
   {
-    id: "121344311",
-    title: "Zenlify",
-    fullTitle: "Zenlify",
-    category: "Landing",
+    id: "8769780856746",
+    title: "Norn",
+    fullTitle: "Norn",
+    category: "Landing + App",
     date: "2025",
-    src: "/projects/zenlify-banner.jpg",
-    link: "https://zenlify.netlify.app",
-    main: "/projects/zenlify/logo.png",
+    src: "/projects/norn.jpg",
+    link: "https://norn.world",
     description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
-    mainColor: "rgb(236, 255, 103)",
-    textColor: "#000",
+    mainColor: "#b0e1ff",
+    textColor: "#161616",
+    slides: [
+      {
+        title: "Main Section",
+        image: "/projects/zenlify/zenlify-header.jpg",
+      },
+      {
+        title: "About Section",
+        image: "/projects/zenlify/zenlify-about.jpg",
+      },
+      {
+        title: "Features Section",
+        image: "/projects/zenlify/zenlify-features.jpg",
+      },
+      {
+        title: "Features Continuing",
+        image: "/projects/zenlify/zenlify-features-2.jpg",
+      },
+      {
+        title: "Story Section",
+        image: "/projects/zenlify/zenlify-story.jpg",
+      },
+      {
+        title: "Footer Section",
+        image: "/projects/zenlify/zenlify-footer.jpg",
+      },
+    ],
+  },
+  {
+    id: "5655679645",
+    title: "11Gen",
+    fullTitle: "11Gen",
+    category: "Website",
+    date: "2025",
+    src: "/projects/11gen.jpg",
+    link: "https://elevengen.com",
+    description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
+    mainColor: "#000",
+    textColor: "#fff",
     slides: [
       {
         title: "Main Section",

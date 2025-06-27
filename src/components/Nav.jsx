@@ -137,30 +137,7 @@ const Nav = () => {
                           className="flex items-center w-full relative"
                           onClick={() => closeMenuOnInternalLink(link.path)}
                         >
-                          {pathname === link.path && (
-                            <motion.span
-                              initial={{ x: "-38px", opacity: 0 }}
-                              animate={{ x: "0px", opacity: 1 }}
-                              exit={{ x: "-38px", opacity: 0 }}
-                              transition={{
-                                duration: 0.25,
-                                ease: [1, 0.01, 0.28, 1],
-                              }}
-                              key={"indicator"}
-                              className={`mainFont2 absolute top-0 left-0 ${textSizeClass} text-left uppercase font-[600] mr-3`}
-                            >
-                              /
-                            </motion.span>
-                          )}
                           <motion.span
-                            initial={{ x: "0px" }}
-                            animate={
-                              pathname === link.path
-                                ? { x: "38px" }
-                                : { x: "0px" }
-                            }
-                            exit={{ x: "0px" }}
-                            transition={{ duration: 0.2 }}
                             className={`mainFont2 ${textSizeClass} w-full text-center uppercase font-[600]`}
                           >
                             {link.label}
