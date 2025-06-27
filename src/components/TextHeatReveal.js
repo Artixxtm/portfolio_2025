@@ -88,7 +88,7 @@ export class TextHeatReveal {
   }
 
   prepareCover() {
-    const scale = Math.max(this.W / this.img.width, this.H / this.img.height);
+    const scale = Math.min(this.W / this.img.width, this.H / this.img.height);
     const sw = this.img.width * scale;
     const sh = this.img.height * scale;
     const ox = (this.W - sw) / 2;

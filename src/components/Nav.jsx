@@ -22,9 +22,9 @@ const AudioVisualizer = dynamic(() => import("./AudioVisualizer"), {
 });
 
 const menuLinks = [
+  { path: "/", label: "Home" },
   { path: "/projects", label: "Projects" },
   { path: "/about", label: "About" },
-  { path: "/life", label: "Life" },
   { path: "/contact", label: "Contact" },
 ];
 
@@ -100,7 +100,7 @@ const Nav = () => {
           >
             <div className="flex lg:w-full w-max gap-8">
               <a href="mailto:officalwoolf@gmail.com" target="_blank">
-                  <SiMaildotru size={26} />
+                <SiMaildotru size={26} />
               </a>
             </div>
             <div className="flex flex-col items-center w-full">
@@ -124,12 +124,13 @@ const Nav = () => {
           </motion.nav>
 
           <div className="menu-overlay">
-            <div className="menu-copy relative top-[-40px] overflow-hidden">
-              <div className="menu-links flex flex-col items-center gap-8 w-full">
+            <div className="menu-copy h-full relative overflow-hidden">
+              <div className="w-full h-[90%] absolute left-0 top-1/2 -translate-y-1/2 bg-[#99ff59] customClipNav" />
+              <div className="menu-links flex flex-col items-center relative mt-[-30px] gap-8 w-full">
                 <AnimatePresence>
                   {menuLinks.map((link, index) => (
                     <div className="menu-link-item w-full" key={index}>
-                      <div className="menu-link-item-holder text-white w-full">
+                      <div className="menu-link-item-holder text-black w-full">
                         <Link
                           href={link.path}
                           target={link.target ?? null}
@@ -201,7 +202,12 @@ const Nav = () => {
             <p>Artixx™</p>
           </div>
           <div className="flex w-full justify-end gap-8">
-            <p className="flex cursor-default"><DecryptedText text="open for freelance \ work" animateOn="hover" /></p>
+            <p className="flex cursor-default">
+              <DecryptedText
+                text="open for freelance \ work"
+                animateOn="hover"
+              />
+            </p>
             <div className="flex flex-col text-right">
               <a href="https://www.linkedin.com/in/artixx/" target="_blank">
                 <DecryptedText text="LinkedIn" animateOn="hover" />
@@ -232,10 +238,26 @@ const Nav = () => {
         </div>
 
         <div className="w-full lg:flex hidden items-end justify-center uppercase h-full gap-8 fontMain6">
-          <div className="flex w-auto items-center justify-center gap-8 bg-[rgb(25,25,25,.75)] border-[1px] border-[#878787]/10 backdrop-blur-md py-4 px-10 rounded-xl">
+          <div className="relative flex w-auto items-center justify-center gap-8 py-4 px-10 customClipWrapper backdrop-blur-md bg-[rgba(25,25,25,0.75)]">
+            <svg
+              className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+              viewBox="-0.5 -0.5 101 101"
+              preserveAspectRatio="none"
+            >
+              <polygon
+                points="0,100 0,20 5,0 99.5,0 99.5,80 94.5,100"
+                fill="none"
+                stroke="rgba(135,135,135,0.2)"
+                strokeWidth="1"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+
+            {/* Menu links */}
             {menuLinks.map((link, index) => (
-              <Link href={link.path} key={index}>
+              <Link href={link.path} key={index} className="relative group">
                 {link.label}
+                <div className="w-1 h-1 bg-white/85 absolute left-1/2 rounded-[1px] -translate-x-1/2 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
             ))}
           </div>

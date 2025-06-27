@@ -220,14 +220,14 @@ audio {
   }
 }
 
-
 .menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding: 2rem 1.25rem;
+  padding: 4.5rem 1.25rem;
+  padding-bottom: 5rem;
   background: #121212;
   z-index: 2;
   display: flex;
@@ -236,10 +236,10 @@ audio {
 }
 
 .menu-copy {
-  flex: 4;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
 }
@@ -250,39 +250,37 @@ audio {
 
 .type-tiny,
 .cdawrap {
-	font-size: 11px;
-	text-transform: uppercase;
-	font-weight: 400;
-	font-variation-settings: "wght" 400;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
 }
 
 .content--full {
-	display: grid;
-	/* height: 100vh; */
-	place-items: center;
-	grid-template-areas: 'main';
-	grid-template-rows: 100%;
-	grid-template-columns: 100%;
+  display: grid;
+  /* height: 100vh; */
+  place-items: center;
+  grid-template-areas: "main";
+  grid-template-rows: 100%;
+  grid-template-columns: 100%;
 }
 
 .grid__img {
-	background-size: contain;
-	background-position: 50% 50%;
+  background-size: contain;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
-	pointer-events: none;
-	will-change: transform;
-	transform: translateZ(0.1px);
+  will-change: transform;
+  transform: translateZ(0.1px);
 }
 
 .grid--columns .grid__img {
-	height: min-content;
-	aspect-ratio: 2 / 3;
+  height: min-content;
+  aspect-ratio: 2 / 3;
 }
 
 @media (min-width: 768px) {
   #projects .grid--columns {
-    grid-template-areas:
-      "text-left image text-right" !important;
+    grid-template-areas: "text-left image text-right" !important;
   }
 }
 
@@ -299,4 +297,25 @@ audio {
     grid-template-areas: "text-left image text-right";
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.customBtnClip {
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    100% 100%,
+    100% 0%,
+    60% 0,
+    55% 16%,
+    45% 16%,
+    40% 0
+  );
+}
+
+.customClipNav {
+  clip-path: polygon(0 100%, 0 5%, 10% 0, 100% 0, 100% 95%, 90% 100%);
+}
+
+.customClipWrapper {
+  clip-path: polygon(0.1% 100%, 0.4% 20%, 5% 0, 99.4% 0, 99.5% 80%, 95% 100%);
 }

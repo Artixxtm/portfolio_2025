@@ -156,7 +156,7 @@ export default function AudioVisualizer() {
   };
   return (
     <div
-      className="w-max flex items-end gap-3 cursor-pointer select-none"
+      className="w-max flex items-end gap-3 cursor-pointer select-none group"
       onClick={handleToggle}
     >
       {!isTablet && (
@@ -165,7 +165,7 @@ export default function AudioVisualizer() {
           <span>Toggle</span>
         </div>
       )}
-      <div className="w-[50px] h-[50px] border-[1px] border-[#878787]/40 hover:bg-[#131313] transition-colors duration-300 rounded-xl">
+      <div className="w-[50px] h-[50px] border-[1px] border-[#878787]/40 group-hover:bg-[#131313] transition-colors duration-300 rounded-xl">
         <div className={`${play ? "play" : ""} w-full h-full`}>
           <audio
             ref={audioRef}
