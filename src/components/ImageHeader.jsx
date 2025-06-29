@@ -17,7 +17,7 @@ const ImageHeader = ({ src }) => {
       alt="bg"
       sizes="100vw"
       draggable={false}
-      className="w-auto lg:h-[55vh] md:h-[45vh] h-[30vh] object-contain customShadow animateBreath lg:pointer-events-auto pointer-events-none"
+      className="w-auto md:h-[45vh] h-[25vh] object-contain customShadow animateBreath lg:pointer-events-auto pointer-events-none"
     />
   );
 };

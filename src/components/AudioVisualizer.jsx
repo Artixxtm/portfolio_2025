@@ -165,13 +165,23 @@ export default function AudioVisualizer() {
           <span>Toggle</span>
         </div>
       )}
-      <div className="w-[50px] h-[50px] border-[1px] border-[#878787]/40 group-hover:bg-[#131313] transition-colors duration-300 rounded-xl">
-        <div className={`${play ? "play" : ""} w-full h-full`}>
-          <audio
-            ref={audioRef}
-            loop
-            src="/sfx/bgMusic.mp3"
+      <div className="relative w-[50px] h-[50px] group customClipLeftUp border border-transparent transition-colors duration-300 backdrop-blur-md bg-[rgba(25,25,25,0.75)]">
+        <svg
+          className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+          viewBox="-1.5 -1.5 103 103"
+          preserveAspectRatio="none"
+        >
+          <polygon
+            points="0,0 100,0 100,50 100,100 30,100 0,70"
+            fill="none"
+            stroke="rgba(135,135,135,0.2)"
+            strokeWidth="1"
+            vectorEffect="non-scaling-stroke"
           />
+        </svg>
+
+        <div className={`${play ? "play" : ""} w-full h-full`}>
+          <audio ref={audioRef} loop src="/sfx/bgMusic.mp3" />
           <canvas
             ref={canvasRef}
             style={{ display: "block", width: "100%", height: "100%" }}

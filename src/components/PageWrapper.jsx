@@ -1,21 +1,31 @@
+"use client";
+
+import Contact from "@/sections/Contact";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 
 const Header = dynamic(() => import("@/sections/Header"), { ssr: false });
 const Projects = dynamic(() => import("@/sections/Projects"), { ssr: false });
+const About = dynamic(() => import("@/sections/About"), { ssr: false });
 
 const PageWrapper = () => {
-  const [showProjects, setShowProjects] = useState(false);
+  const [showOther, setShowOther] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setShowProjects(true), 500);
+    const timeout = setTimeout(() => setShowOther(true), 500);
 
     return () => clearTimeout(timeout);
   }, []);
   return (
     <>
-        <Header />
-        <Projects />
+      <Header />
+      {showOther && (
+        <>
+          <Projects />
+          <About />
+          <Contact />
+        </>
+      )}
     </>
   );
 };

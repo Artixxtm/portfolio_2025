@@ -125,7 +125,7 @@ const Nav = () => {
 
           <div className="menu-overlay">
             <div className="menu-copy h-full relative overflow-hidden">
-              <div className="w-full h-[90%] absolute left-0 top-1/2 -translate-y-1/2 bg-[#99ff59] customClipNav" />
+              <div className="w-full h-[80%] absolute left-0 top-1/2 -translate-y-1/2 bg-[#99ff59] customClipNav" />
               <div className="menu-links flex flex-col items-center relative mt-[-30px] gap-8 w-full">
                 <AnimatePresence>
                   {menuLinks.map((link, index) => (
@@ -234,7 +234,7 @@ const Nav = () => {
             {menuLinks.map((link, index) => (
               <Link href={link.path} key={index} className="relative group">
                 {link.label}
-                <div className="w-1 h-1 bg-white/85 absolute left-1/2 rounded-[1px] -translate-x-1/2 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="w-1 h-1 bg-white/85 absolute left-1/2 -translate-x-1/2 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-pulse" />
               </Link>
             ))}
           </div>

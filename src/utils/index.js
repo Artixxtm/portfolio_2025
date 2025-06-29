@@ -1,3 +1,14 @@
+import Image from "next/image";
+import {
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaDocker,
+  FaHtml5,
+  FaCss3,
+  FaSass,
+} from "react-icons/fa";
+
 export const projects = [
   {
     id: "111",
@@ -226,6 +237,325 @@ export const projects = [
       {
         title: "Footer Section",
         image: "/projects/zenlify/zenlify-footer.jpg",
+      },
+    ],
+  },
+];
+
+export const aboutInfo = [
+  {
+    title: "About Me",
+    description: `I build fullstack web apps with a focus on performance, clean
+                  architecture, and user experience. I enjoy working on real products
+                  - from early MVPs to scaling stable systems. Outside of coding, I’m
+                  into volleyball, fitness, acting, singing, and entrepreneurship -
+                  anything that pushes creativity and growth.`,
+  },
+  {
+    title: "Experience",
+    jobs: [
+      {
+        company: "11Gen",
+        link: "https://elevengen.com",
+        position: "Founder & CEO",
+        logo: "/experience/11Gen.jpg",
+        date: "Oct 2024 - Present",
+      },
+      {
+        company: "11Gen Web Studio",
+        link: "https://studio.elevengen.com",
+        position: "Founder & Fullstack Dev",
+        logo: "/experience/11Web.jpg",
+        date: "Oct 2024 - Present",
+      },
+      {
+        company: "FreeFusion Academy",
+        link: "https://freefusionpro.netlify.app",
+        position: "Founder & Mentor",
+        logo: "/experience/freefusion.jpg",
+        date: "Aug 2023 - Dec 2023",
+      },
+      {
+        company: "Freelance",
+        link: "https://freelancehunt.com/freelancer/Artixx_.html",
+        position: "Fullstack Developer",
+        logo: "/experience/fiverr.png",
+        date: "May 2023 - Sep 2024",
+      },
+      {
+        company: "Freelance",
+        link: "https://freelancehunt.com/freelancer/Artixx_.html",
+        position: "Frontend Developer",
+        logo: "/experience/freelance.png",
+        date: "Nov 2022 - May 2023",
+      },
+    ],
+  },
+  {
+    title: "Tech Skills",
+    stack: [
+      {
+        name: "JavaScript",
+        icon: <FaJs color="#f0db4e" />,
+      },
+      {
+        name: "TypeScript",
+        icon: (
+          <Image
+            src="/assets/typescript.webp"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Three JS",
+        icon: (
+          <Image
+            src="/assets/three.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "React JS",
+        icon: <FaReact color="#00d9ff" />,
+      },
+      {
+        name: "Redux",
+        icon: (
+          <Image
+            src="/assets/redux.webp"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Mobx",
+        icon: (
+          <Image
+            src="/assets/mobx.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "GSAP",
+        icon: (
+          <Image
+            src="/assets/gsap.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Framer Motion",
+        icon: (
+          <Image
+            src="/assets/framer.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Node JS",
+        icon: <FaNodeJs color="#83ce23" />,
+      },
+      {
+        name: "Next JS",
+        icon: (
+          <Image
+            src="/assets/nextjs.png"
+            width={16}
+            height={16}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "React Native",
+        icon: <FaReact color="#00d9ff" />,
+      },
+      {
+        name: "Expo",
+        icon: (
+          <Image
+            src="/assets/expo.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Express",
+        icon: (
+          <Image
+            src="/assets/Express.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Docker",
+        icon: <FaDocker color="#2697ef" />,
+      },
+      {
+        name: "MongoDB",
+        icon: (
+          <Image
+            src="/assets/mongo.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Prisma",
+        icon: (
+          <Image
+            src="/assets/prisma.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "HTML",
+        icon: <FaHtml5 color="#f06529" />,
+      },
+      {
+        name: "CSS",
+        icon: <FaCss3 color="#2965f1" />,
+      },
+      {
+        name: "SASS",
+        icon: <FaSass color="#cc6699" />,
+      },
+      {
+        name: "TailwindCSS",
+        icon: (
+          <Image
+            src="/assets/tailwind.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Figma",
+        icon: (
+          <Image
+            src="/assets/figma.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Photoshop",
+        icon: (
+          <Image
+            src="/assets/photoshop.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Blender",
+        icon: (
+          <Image
+            src="/assets/blender.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Spline",
+        icon: (
+          <Image
+            src="/assets/spline.webp"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Stripe",
+        icon: (
+          <Image
+            src="/assets/stripe.webp"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Git",
+        icon: (
+          <Image
+            src="/assets/git.webp"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Mac",
+        icon: (
+          <Image
+            src="/assets/mac.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Linux",
+        icon: (
+          <Image
+            src="/assets/linux.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
+      },
+      {
+        name: "Windows",
+        icon: (
+          <Image
+            src="/assets/windows.png"
+            width={15}
+            height={15}
+            className="object-contain"
+          />
+        ),
       },
     ],
   },

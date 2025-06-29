@@ -319,3 +319,19 @@ audio {
 .customClipWrapper {
   clip-path: polygon(0.1% 100%, 0.4% 20%, 5% 0, 99.4% 0, 99.5% 80%, 95% 100%);
 }
+
+.customClipLeftUp {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 35% 100%, 0 70%);
+}
+
+.customClipLeftBottom {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 15% 100%, 0 90%);
+}
+
+.customClipHexa {
+clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.customClipRightTop {
+  clip-path: polygon(0 0, 95% 0, 100% 30%, 100% 100%, 0 100%, 0% 50%);
+}

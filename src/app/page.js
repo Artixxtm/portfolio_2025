@@ -29,8 +29,6 @@ const layouts = [
 export default function Home() {
   const lenisRef = useRef();
 
-  // const { local, result } = useRandom(layouts);
-
   useEffect(() => {
     ScrollTrigger.clearScrollMemory("manual");
     ScrollTrigger.config({ ignoreMobileResize: true });
@@ -79,9 +77,6 @@ export default function Home() {
 
         <div className="content-holder w-full h-auto relative">
           <PageWrapper />
-          {/* <div className="w-screen h-[70vh] relative"></div> */}
-
-          <div className="w-full h-[100vh] bg-white relative"></div>
         </div>
       </ReactLenis>
     </>
