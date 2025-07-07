@@ -30,7 +30,6 @@ const menuLinks = [
 
 const Nav = () => {
   const { isTablet, isSmallMobile } = useResponsive();
-  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const container = useRef();
   const tl = useRef();

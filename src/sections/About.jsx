@@ -104,10 +104,10 @@ const About = () => {
         </div>
       </div>
 
-      <div className="w-auto xl:max-w-[40vw] h-[calc(100vh-12rem)] pt-4 sticky top-20 xl:mx-0 mx-auto">
+      <div className="xl:w-auto w-full xl:max-w-[40vw] xl:h-[calc(100vh-12rem)] h-auto pt-4 xl:sticky xl:top-20 relative xl:mt-0 mt-10 xl:mx-0 mx-auto">
         <Image
           src={"/me-1.jpg"}
-          alt="Me"
+          alt="Artem Naumenko"
           sizes="100vw"
           width={0}
           height={0}

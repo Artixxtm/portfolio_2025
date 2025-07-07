@@ -305,6 +305,7 @@ export const aboutInfo = [
             src="/assets/typescript.webp"
             width={15}
             height={15}
+            alt="typescript"
             className="object-contain"
           />
         ),
@@ -316,6 +317,7 @@ export const aboutInfo = [
             src="/assets/three.png"
             width={15}
             height={15}
+            alt="three js"
             className="object-contain"
           />
         ),
@@ -331,6 +333,7 @@ export const aboutInfo = [
             src="/assets/redux.webp"
             width={15}
             height={15}
+            alt="redux"
             className="object-contain"
           />
         ),
@@ -342,6 +345,7 @@ export const aboutInfo = [
             src="/assets/mobx.png"
             width={15}
             height={15}
+            alt="mobx"
             className="object-contain"
           />
         ),
@@ -353,6 +357,7 @@ export const aboutInfo = [
             src="/assets/gsap.png"
             width={15}
             height={15}
+            alt="gsap"
             className="object-contain"
           />
         ),
@@ -364,6 +369,7 @@ export const aboutInfo = [
             src="/assets/framer.png"
             width={15}
             height={15}
+            alt="framer motion"
             className="object-contain"
           />
         ),
@@ -379,6 +385,7 @@ export const aboutInfo = [
             src="/assets/nextjs.png"
             width={16}
             height={16}
+            alt="nextjs"
             className="object-contain"
           />
         ),
@@ -394,6 +401,7 @@ export const aboutInfo = [
             src="/assets/expo.png"
             width={15}
             height={15}
+            alt="expo"
             className="object-contain"
           />
         ),
@@ -405,6 +413,7 @@ export const aboutInfo = [
             src="/assets/Express.png"
             width={15}
             height={15}
+            alt="express"
             className="object-contain"
           />
         ),
@@ -420,6 +429,7 @@ export const aboutInfo = [
             src="/assets/mongo.png"
             width={15}
             height={15}
+           alt="mongodb" 
             className="object-contain"
           />
         ),
@@ -431,6 +441,7 @@ export const aboutInfo = [
             src="/assets/prisma.png"
             width={15}
             height={15}
+            alt="prisma"
             className="object-contain"
           />
         ),
@@ -454,6 +465,7 @@ export const aboutInfo = [
             src="/assets/tailwind.png"
             width={15}
             height={15}
+            alt="tailwindcss"
             className="object-contain"
           />
         ),
@@ -465,6 +477,7 @@ export const aboutInfo = [
             src="/assets/figma.png"
             width={15}
             height={15}
+            alt="figma"
             className="object-contain"
           />
         ),
@@ -476,6 +489,7 @@ export const aboutInfo = [
             src="/assets/photoshop.png"
             width={15}
             height={15}
+            alt="photoshop"
             className="object-contain"
           />
         ),
@@ -487,6 +501,7 @@ export const aboutInfo = [
             src="/assets/blender.png"
             width={15}
             height={15}
+            alt="blender"
             className="object-contain"
           />
         ),
@@ -498,6 +513,7 @@ export const aboutInfo = [
             src="/assets/spline.webp"
             width={15}
             height={15}
+            alt="spline"
             className="object-contain"
           />
         ),
@@ -509,6 +525,7 @@ export const aboutInfo = [
             src="/assets/stripe.webp"
             width={15}
             height={15}
+            alt="stripe"
             className="object-contain"
           />
         ),
@@ -520,6 +537,7 @@ export const aboutInfo = [
             src="/assets/git.webp"
             width={15}
             height={15}
+            alt="git"
             className="object-contain"
           />
         ),
@@ -531,6 +549,7 @@ export const aboutInfo = [
             src="/assets/mac.png"
             width={15}
             height={15}
+            alt="mac"
             className="object-contain"
           />
         ),
@@ -542,6 +561,7 @@ export const aboutInfo = [
             src="/assets/linux.png"
             width={15}
             height={15}
+            alt="linux"
             className="object-contain"
           />
         ),
@@ -553,6 +573,7 @@ export const aboutInfo = [
             src="/assets/windows.png"
             width={15}
             height={15}
+            alt="windows"
             className="object-contain"
           />
         ),

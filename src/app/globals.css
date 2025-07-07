@@ -320,6 +320,10 @@ audio {
   clip-path: polygon(0.1% 100%, 0.4% 20%, 5% 0, 99.4% 0, 99.5% 80%, 95% 100%);
 }
 
+.customClipWrapper2 {
+  clip-path: polygon(0.45% 100%, 0.45% 20.4%, 5.5% 0.3%, 99.1% 0.3%, 99.1% 80%, 94.1% 100%);
+}
+
 .customClipLeftUp {
   clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 35% 100%, 0 70%);
 }

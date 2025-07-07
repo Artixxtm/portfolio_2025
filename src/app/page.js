@@ -10,22 +10,6 @@ const PageWrapper = dynamic(() => import("@/components/PageWrapper"), { ssr: fal
 
 gsap.registerPlugin(ScrollTrigger);
 
-function percentageVideo(partialValue, totalValue) {
-  return partialValue / totalValue;
-}
-
-const layouts = [
-  {
-    name: "first layout",
-  },
-  {
-    name: "second layout",
-  },
-  {
-    name: "third layout",
-  },
-];
-
 export default function Home() {
   const lenisRef = useRef();
 
