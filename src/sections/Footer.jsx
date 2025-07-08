@@ -1,6 +1,7 @@
 import DecryptedText from "@/components/DecryptedText";
 import StretchedText from "@/components/StretchedText";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -21,6 +22,12 @@ const Footer = () => {
             Contact Me
           </a>
         </div>
+      </div>
+      <div className="flex w-full h-auto items-center justify-between fontMain6 opacity-90 flex-wrap">
+        <Link target="_blank" className="hover:opacity-60 transition-opacity duration-300" href="https://www.linkedin.com/in/artixx/">[ LinkedIn ]</Link>
+        <Link target="_blank" className="hover:opacity-60 transition-opacity duration-300" href="https://www.instagram.com/artixxtm/">[ Instagram ]</Link>
+        <Link target="_blank" className="hover:opacity-60 transition-opacity duration-300" href="https://t.me/artixxtm/">[ Telegram ]</Link>
+        <Link target="_blank" className="hover:opacity-60 transition-opacity duration-300" href="https://github.com/Artixxtm/">[ GitHub ]</Link>
       </div>
       <div className="flex flex-col w-full h-auto">
         <div className="w-full flex justify-between h-auto gap-4 items-center mb-1 px-[4px] fontMain6 uppercase sm:text-base text-xs opacity-85">
