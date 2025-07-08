@@ -10,6 +10,20 @@ import {
 } from "react-icons/fa";
 
 export const projects = [
+    {
+    id: "11211",
+    title: "FreeFusion Academy",
+    fullTitle: "FreeFusion Academy",
+    category: "Landing",
+    date: "2023",
+    src: "/projects/freefusion.jpg",
+    link: "https://freefusionpro.netlify.app/",
+    main: "/projects/youth/logo.webp",
+    screenshot: "/projects/youthvision-header.png",
+    description: `The Youth Vision Festival site, built with React.js and GSAP, uses smooth animations and a responsive design to deliver an engaging way to explore event and nomies.`,
+    mainColor: "rgb(143,63,71)",
+    textColor: "#ffffffc3",
+  },
   {
     id: "111",
     title: "Youth Vision",
@@ -23,28 +37,6 @@ export const projects = [
     description: `The Youth Vision Festival site, built with React.js and GSAP, uses smooth animations and a responsive design to deliver an engaging way to explore event and nomies.`,
     mainColor: "rgb(143,63,71)",
     textColor: "#ffffffc3",
-    slides: [
-      {
-        title: "Main Section",
-        image: "/projects/youth/youth-header.png",
-      },
-      {
-        title: "Nominations Section",
-        image: "/projects/youth/youth-nomi.png",
-      },
-      {
-        title: "Speakers Section",
-        image: "/projects/youth/youth-speakers.png",
-      },
-      {
-        title: "Rules Section",
-        image: "/projects/youth/youth-rules.png",
-      },
-      {
-        title: "Footer Section",
-        image: "/projects/youth/youth-footer.png",
-      },
-    ],
   },
   {
     id: "331",
@@ -59,48 +51,6 @@ export const projects = [
     description: `A responsive platform where users share fashion looks via photos or Reels. Features include user / admin roles, 18+ content moderation, and full profile customization.`,
     mainColor: "rgb(123,5,3)",
     textColor: "#fff",
-    slides: [
-      {
-        title: "Home Page",
-        image: "/projects/chicpalette/chic-header.png",
-      },
-      {
-        title: "Explore Page",
-        image: "/projects/chicpalette/chic-explore.png",
-      },
-      {
-        title: "Post Page",
-        image: "/projects/chicpalette/chic-post.png",
-      },
-      {
-        title: "Clips Page",
-        image: "/projects/chicpalette/chic-clips.png",
-      },
-      {
-        title: "Profile Page",
-        image: "/projects/chicpalette/chic-profile.png",
-      },
-      {
-        title: "Login Page",
-        image: "/projects/chicpalette/chic-login.png",
-      },
-      {
-        title: "Register Page",
-        image: "/projects/chicpalette/chic-register.png",
-      },
-      {
-        title: "Settings Page",
-        image: "/projects/chicpalette/chic-settings.png",
-      },
-      {
-        title: "Upload Page",
-        image: "/projects/chicpalette/chic-upload.png",
-      },
-      {
-        title: "404 Page",
-        image: "/projects/chicpalette/chic-404.png",
-      },
-    ],
   },
   {
     id: "12131314511",
@@ -114,16 +64,6 @@ export const projects = [
     description: `A responsive, animated landing page for Samurai's Odyssey (Q4 2025 release). Built with React and Framer Motion. Fully optimized for all devices.`,
     mainColor: "rgb(255, 155, 95)",
     textColor: "#000",
-    slides: [
-      {
-        title: "Home Page",
-        image: "/projects/samurais/samurai-home.jpg",
-      },
-      {
-        title: "Modal Window",
-        image: "/projects/samurais/samurai-modal.jpg",
-      },
-    ],
   },
   {
     id: "121344311",
@@ -137,32 +77,18 @@ export const projects = [
     description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
     mainColor: "rgb(236, 255, 103)",
     textColor: "#000",
-    slides: [
-      {
-        title: "Main Section",
-        image: "/projects/zenlify/zenlify-header.jpg",
-      },
-      {
-        title: "About Section",
-        image: "/projects/zenlify/zenlify-about.jpg",
-      },
-      {
-        title: "Features Section",
-        image: "/projects/zenlify/zenlify-features.jpg",
-      },
-      {
-        title: "Features Continuing",
-        image: "/projects/zenlify/zenlify-features-2.jpg",
-      },
-      {
-        title: "Story Section",
-        image: "/projects/zenlify/zenlify-story.jpg",
-      },
-      {
-        title: "Footer Section",
-        image: "/projects/zenlify/zenlify-footer.jpg",
-      },
-    ],
+  },
+  {
+    id: "876956780856746",
+    title: "11Web Studio",
+    fullTitle: "11Gen Web Studio",
+    category: "Website",
+    date: "2025",
+    src: "/projects/studio.jpg",
+    link: "https://studio.elevengen.com",
+    description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
+    mainColor: "#000",
+    textColor: "#fff",
   },
   {
     id: "8769780856746",
@@ -175,32 +101,6 @@ export const projects = [
     description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
     mainColor: "#b0e1ff",
     textColor: "#161616",
-    slides: [
-      {
-        title: "Main Section",
-        image: "/projects/zenlify/zenlify-header.jpg",
-      },
-      {
-        title: "About Section",
-        image: "/projects/zenlify/zenlify-about.jpg",
-      },
-      {
-        title: "Features Section",
-        image: "/projects/zenlify/zenlify-features.jpg",
-      },
-      {
-        title: "Features Continuing",
-        image: "/projects/zenlify/zenlify-features-2.jpg",
-      },
-      {
-        title: "Story Section",
-        image: "/projects/zenlify/zenlify-story.jpg",
-      },
-      {
-        title: "Footer Section",
-        image: "/projects/zenlify/zenlify-footer.jpg",
-      },
-    ],
   },
   {
     id: "5655679645",
@@ -213,32 +113,6 @@ export const projects = [
     description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
     mainColor: "#000",
     textColor: "#fff",
-    slides: [
-      {
-        title: "Main Section",
-        image: "/projects/zenlify/zenlify-header.jpg",
-      },
-      {
-        title: "About Section",
-        image: "/projects/zenlify/zenlify-about.jpg",
-      },
-      {
-        title: "Features Section",
-        image: "/projects/zenlify/zenlify-features.jpg",
-      },
-      {
-        title: "Features Continuing",
-        image: "/projects/zenlify/zenlify-features-2.jpg",
-      },
-      {
-        title: "Story Section",
-        image: "/projects/zenlify/zenlify-story.jpg",
-      },
-      {
-        title: "Footer Section",
-        image: "/projects/zenlify/zenlify-footer.jpg",
-      },
-    ],
   },
 ];
 
@@ -429,7 +303,7 @@ export const aboutInfo = [
             src="/assets/mongo.png"
             width={15}
             height={15}
-           alt="mongodb" 
+            alt="mongodb"
             className="object-contain"
           />
         ),

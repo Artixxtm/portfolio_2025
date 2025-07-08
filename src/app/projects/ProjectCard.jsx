@@ -1,5 +1,6 @@
 'use client'
 
+import ImageLoader from "@/components/ImageLoader";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -13,13 +14,14 @@ const ProjectCard = ({ data }) => {
       className="w-full h-auto flex flex-col gap-4 relative group overflow-hidden"
     >
       <div className="w-full h-[400px] overflow-hidden group">
-        <Image
+        <ImageLoader
           src={data.src}
           alt={data.fullTitle}
           width={0}
           height={0}
           sizes="100vw"
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]"
+          containerStyles={'w-full h-full'}
+          className="w-full h-full object-cover group-hover:scale-110 transition-[opacity,scale,transform] duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]"
         />
       </div>
       <div className="w-full flex h-auto justify-between items-center">
