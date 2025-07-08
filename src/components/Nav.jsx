@@ -14,18 +14,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { usePathname } from "next/navigation";
 import DecryptedText from "./DecryptedText";
+import { useLenis } from "lenis/react";
 
 const AudioVisualizer = dynamic(() => import("./AudioVisualizer"), {
   ssr: false,
 });
 
 const menuLinks = [
-  { path: "/", label: "Home" },
-  { path: "/projects", label: "Projects" },
-  { path: "/about", label: "About" },
-  { path: "/contact", label: "Contact" },
+  { path: "#header", label: "Home" },
+  { path: "#projects", label: "Projects" },
+  { path: "#about", label: "About" },
+  { path: "#contact", label: "Contact" },
 ];
 
 const Nav = () => {
@@ -33,6 +33,8 @@ const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const container = useRef();
   const tl = useRef();
+
+  const lenis = useLenis();
 
   useGSAP(
     () => {
@@ -58,9 +60,7 @@ const Nav = () => {
     { scope: container }
   );
 
-  const closeMenuOnInternalLink = useCallback((path) => {
-    if (path?.startsWith("/")) setIsMenuOpen(false);
-  }, []);
+  const closeMenuOnInternalLink = useCallback((path) => setIsMenuOpen(false), []);
 
   useEffect(() => {
     if (isTablet) {
@@ -124,28 +124,43 @@ const Nav = () => {
 
           <div className="menu-overlay">
             <div className="menu-copy h-full relative overflow-hidden">
-              <div className="w-full h-[80%] absolute left-0 top-1/2 -translate-y-1/2 bg-[#99ff59] customClipNav" />
-              <div className="menu-links flex flex-col items-center relative mt-[-30px] gap-8 w-full">
-                <AnimatePresence>
-                  {menuLinks.map((link, index) => (
-                    <div className="menu-link-item w-full" key={index}>
-                      <div className="menu-link-item-holder text-black w-full">
-                        <Link
-                          href={link.path}
-                          target={link.target ?? null}
-                          className="flex items-center w-full relative"
-                          onClick={() => closeMenuOnInternalLink(link.path)}
-                        >
-                          <motion.span
-                            className={`mainFont2 ${textSizeClass} w-full text-center uppercase font-[600]`}
+              <div className="w-full h-[80%] absolute left-0 top-1/2 -translate-y-1/2 bg-[rgb(25,25,25,.75)] customClipNav" />
+              <div className="w-full h-[80%] relative flex justify-center items-center">
+                <svg
+                  className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+                  viewBox="-0.5 -0.5 101 101"
+                  preserveAspectRatio="none"
+                >
+                  <polygon
+                    points="0,100 0,5 10,0 100,0 100,95 90,100"
+                    fill="none"
+                    stroke="rgba(135,135,135,0.2)"
+                    strokeWidth="1"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+                <div className="menu-links flex flex-col items-center relative mt-[-30px] gap-8 w-full">
+                  <AnimatePresence>
+                    {menuLinks.map((link, index) => (
+                      <div className="menu-link-item w-full" key={index}>
+                        <div className="menu-link-item-holder text-white w-full">
+                          <Link
+                            href={link.path}
+                            target={link.target ?? null}
+                            className="flex items-center w-full relative"
+                            onClick={() => closeMenuOnInternalLink(link.path)}
                           >
-                            {link.label}
-                          </motion.span>
-                        </Link>
+                            <motion.span
+                              className={`mainFont2 ${textSizeClass} w-full text-center uppercase font-[600]`}
+                            >
+                              {link.label}
+                            </motion.span>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </AnimatePresence>
+                    ))}
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
           </div>
@@ -231,7 +246,14 @@ const Nav = () => {
 
             {/* Menu links */}
             {menuLinks.map((link, index) => (
-              <Link href={link.path} key={index} className="relative group">
+              <Link
+                href={link.path}
+                key={index}
+                className="relative group"
+                onClick={() => {
+                  if (link.path.startsWith("#")) lenis?.scrollTo(link.path);
+                }}
+              >
                 {link.label}
                 <div className="w-1 h-1 bg-white/85 absolute left-1/2 -translate-x-1/2 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-pulse" />
               </Link>
@@ -239,7 +261,7 @@ const Nav = () => {
           </div>
         </div>
 
-        <div className="w-full flex items-end justify-end content-end h-full fontMain5 opacity-90">
+        <div className="w-full flex items-end justify-end content-end h-full fontMain5">
           <AudioVisualizer />
         </div>
       </motion.nav>

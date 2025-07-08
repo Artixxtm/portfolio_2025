@@ -35,6 +35,11 @@
   border-radius: 2px;
 }
 
+::selection {
+  background: #99ff59;
+  color: #000
+}
+
 @font-face {
   font-family: "Rabenk";
   src: url("/fonts/Rabenk-WyBOO.ttf");
@@ -64,8 +69,6 @@ body {
   color: rgb(var(--foreground-rgb));
   background: #000;
 }
-
-/* rgb(13, 2, 23) */
 
 @layer utilities {
   .text-balance {
@@ -125,41 +128,6 @@ body {
   font-weight: 300;
 }
 
-#header {
-  --opacityBefore: 1;
-}
-
-/* #header::before {
-  content: '';
-  opacity: var(--opacityBefore);
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient( to right, rgba(189, 186, 216, 0.18) 1px, transparent 1px );
-  background-size: 14rem 14rem;
-  background-position: center center;
-  pointer-events: none;
-  z-index: 0;
-} */
-
-#header::after {
-  content: "";
-  opacity: 0;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  /* background: #0000004b; */
-  pointer-events: none;
-  transition: all 1.2s ease 0s;
-}
-
-#header.show::after {
-  opacity: 1;
-}
-
 .fontMain4 {
   font-family: "Minisystem";
 }
@@ -176,32 +144,12 @@ nav.showNav1 {
   bottom: 2rem;
 }
 
-/* .clipPathNav {
-  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%, 60% 0, 55% 16%, 45% 16%, 40% 0);
-}
-
-.clipPathNav::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  z-index: -1;
-  border: 1px solid #ffffff12;
-} */
-
 .customBgProjects {
   background: linear-gradient(180deg, #00000000 50%, #8599ff 50%);
 }
 
 audio {
   display: none;
-}
-
-.customShadow {
-  /* filter: drop-shadow(-40px 20px 40px #000000a3); */
 }
 
 .animateBreath {

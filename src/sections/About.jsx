@@ -6,7 +6,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full h-full min-h-screen relative bg-black md:px-10 px-5 py-24 flex xl:flex-row flex-col justify-between items-start xl:gap-0 md:gap-10 gap-0">
+    <div id="about" className="w-full h-full min-h-screen relative bg-black md:px-10 px-5 py-24 flex xl:flex-row flex-col justify-between items-start xl:gap-0 md:gap-10 gap-0">
       <div className="xl:w-auto w-full xl:max-w-[40vw] h-auto pt-2 flex flex-col gap-20">
         <div className="flex flex-col gap-5 relative">
           <DecryptedText
@@ -104,7 +104,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="xl:w-auto w-full xl:max-w-[40vw] xl:h-[calc(100vh-12rem)] h-auto pt-4 xl:sticky xl:top-20 relative xl:mt-0 mt-10 xl:mx-0 mx-auto">
+      <div className="w-auto xl:max-w-[40vw] xl:h-[calc(100vh-12rem)] h-auto pt-4 xl:sticky xl:top-20 relative xl:mt-0 mt-10 xl:mx-0 mx-auto">
         <Image
           src={"/me-1.jpg"}
           alt="Artem Naumenko"

@@ -165,7 +165,7 @@ export default function AudioVisualizer() {
           <span>Toggle</span>
         </div>
       )}
-      <div className="relative w-[50px] h-[50px] group customClipLeftUp transition-colors duration-300 backdrop-blur-md bg-[rgba(25,25,25,1)]">
+      <div className="relative w-[50px] h-[50px] group customClipLeftUp transition-colors duration-300 backdrop-blur-md bg-[rgba(25,25,25,0.75)]">
         <svg
           className="absolute inset-0 w-full h-full z-10 pointer-events-none"
           viewBox="-1.5 -1.5 103 103"

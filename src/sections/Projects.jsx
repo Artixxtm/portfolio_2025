@@ -34,7 +34,6 @@ const Projects = () => {
             trigger: grid,
             start: "center 100%",
             end: "+=200%",
-            // pin: grid,
             scrub: 0.2,
           },
         })
