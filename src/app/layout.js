@@ -50,7 +50,10 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="/banner.jpg" />
         <meta name="twitter:image:width" content="1600" />
         <meta name="twitter:image:height" content="800" />
-        <meta name="twitter:image:alt" content="Artem Naumenko | Артём Науменко" />
+        <meta
+          name="twitter:image:alt"
+          content="Artem Naumenko | Артём Науменко"
+        />
 
         <meta name="author" content="Artem Naumenko" />
         <meta name="robots" content="index, follow" />
@@ -60,17 +63,9 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://artem-naumenko.com" />
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
 
-        <link
-          rel="dns-prefetch"
-          href="https://fonts.googleapis.com"
-          key="dns1"
-        />
-        <link
-          rel="dns-prefetch"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-          key="dns2"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        
         <link
           href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap"
           rel="stylesheet"

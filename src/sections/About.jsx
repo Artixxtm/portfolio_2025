@@ -1,3 +1,5 @@
+'use client'
+
 import DecryptedText from "@/components/DecryptedText";
 import { aboutInfo } from "@/utils";
 import Image from "next/image";

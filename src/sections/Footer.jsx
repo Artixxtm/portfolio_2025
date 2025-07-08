@@ -1,3 +1,5 @@
+'use client'
+
 import DecryptedText from "@/components/DecryptedText";
 import StretchedText from "@/components/StretchedText";
 import Image from "next/image";

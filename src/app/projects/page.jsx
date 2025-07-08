@@ -7,7 +7,7 @@ import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 
-const page = () => {
+const Page = () => {
   const lenis = useLenis();
 
   useEffect(() => {
@@ -48,4 +48,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
