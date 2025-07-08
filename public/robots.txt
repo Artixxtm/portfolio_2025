@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artem-naumenko.com/sitemap.xml
