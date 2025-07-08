@@ -2,13 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { TextHeatReveal } from "./TextHeatReveal";
-import useResponsive from "@/hooks/useResponsive";
 
 export default function ImageASCI({ src, className }) {
-  const { isTablet, isLaptop, isBigLaptop } = useResponsive();
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
-  const textRef = useRef(null);
   const imageRef = useRef(null);
 
   const [canvasHeight, setCanvasHeight] = useState(0);

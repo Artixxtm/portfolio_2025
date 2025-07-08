@@ -17,6 +17,7 @@ const ImageHeader = ({ src }) => {
       alt="bg"
       sizes="100vw"
       draggable={false}
+      priority
       className="w-auto md:h-[45vh] h-[25vh] object-contain customShadow animateBreath lg:pointer-events-auto pointer-events-none"
     />
   );

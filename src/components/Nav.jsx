@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import React, {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -16,25 +17,44 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import DecryptedText from "./DecryptedText";
 import { useLenis } from "lenis/react";
+import { usePathname } from "next/navigation";
 
 const AudioVisualizer = dynamic(() => import("./AudioVisualizer"), {
   ssr: false,
 });
 
-const menuLinks = [
-  { path: "#header", label: "Home" },
-  { path: "#projects", label: "Projects" },
-  { path: "#about", label: "About" },
-  { path: "#contact", label: "Contact" },
-];
-
 const Nav = () => {
   const { isTablet, isSmallMobile } = useResponsive();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [containerWidth, setContainerWidth] = useState();
+  const linkContainerRef = useRef(null);
   const container = useRef();
+  const path = usePathname();
   const tl = useRef();
 
   const lenis = useLenis();
+
+  const isRoot = path === "/";
+
+  const menuLinks = isRoot
+    ? [
+        { path: "#header", label: "Home" },
+        { path: "#projects", label: "Projects" },
+        { path: "#about", label: "About" },
+        { path: "#contact", label: "Contact" },
+      ]
+    : [
+        { path: "/", label: "Home" },
+        { path: "/projects", label: "Projects" },
+      ];
+
+  useLayoutEffect(() => {
+    if (linkContainerRef.current) {
+      const rect = linkContainerRef.current.getBoundingClientRect();
+      console.log(rect.width)
+      setContainerWidth(rect.width + 80);
+    }
+  }, [menuLinks.length]);
 
   useGSAP(
     () => {
@@ -57,10 +77,16 @@ const Nav = () => {
           });
       }
     },
-    { scope: container }
+    {
+      scope: container,
+      dependencies: [menuLinks.length],
+    }
   );
 
-  const closeMenuOnInternalLink = useCallback((path) => setIsMenuOpen(false), []);
+  const closeMenuOnInternalLink = useCallback(
+    (path) => setIsMenuOpen(false),
+    []
+  );
 
   useEffect(() => {
     if (isTablet) {
@@ -151,7 +177,11 @@ const Nav = () => {
                             onClick={() => closeMenuOnInternalLink(link.path)}
                           >
                             <motion.span
-                              className={`mainFont2 ${textSizeClass} w-full text-center uppercase font-[600]`}
+                              className={`mainFont2 ${textSizeClass} w-full text-center uppercase font-[600] ${
+                                !isRoot &&
+                                link.label === "Projects" &&
+                                "animate-pulse"
+                              }`}
                             >
                               {link.label}
                             </motion.span>
@@ -229,7 +259,10 @@ const Nav = () => {
         </div>
 
         <div className="w-full lg:flex hidden items-end justify-center uppercase h-full gap-8 fontMain6">
-          <div className="relative flex w-auto items-center justify-center gap-8 py-4 px-10 customClipWrapper backdrop-blur-md bg-[rgba(25,25,25,0.75)]">
+          <div
+            style={{ width: containerWidth }}
+            className="relative flex w-auto items-center transition-[width] duration-300 justify-center gap-8 py-4 px-10 customClipWrapper backdrop-blur-md bg-[rgba(25,25,25,0.75)]"
+          >
             <svg
               className="absolute inset-0 w-full h-full z-0 pointer-events-none"
               viewBox="-0.5 -0.5 101 101"
@@ -245,19 +278,36 @@ const Nav = () => {
             </svg>
 
             {/* Menu links */}
-            {menuLinks.map((link, index) => (
-              <Link
-                href={link.path}
-                key={index}
-                className="relative group"
-                onClick={() => {
-                  if (link.path.startsWith("#")) lenis?.scrollTo(link.path);
-                }}
-              >
-                {link.label}
-                <div className="w-1 h-1 bg-white/85 absolute left-1/2 -translate-x-1/2 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-pulse" />
-              </Link>
-            ))}
+            <div ref={linkContainerRef} className="flex gap-8 relative">
+              <AnimatePresence mode="wait">
+                {menuLinks.map((link, index) => (
+                  <motion.div
+                    key={link.label}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                  >
+                    <Link
+                      href={link.path}
+                      className="relative group"
+                      onClick={() => {
+                        if (link.path.startsWith("#"))
+                          lenis?.scrollTo(link.path);
+                      }}
+                    >
+                      {link.label}
+                      <div
+                        className="w-1 h-1 bg-white/85 absolute left-1/2 -translate-x-1/2 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-pulse"
+                        style={{
+                          opacity: !isRoot && link.label === "Projects" ? 1 : 0,
+                        }}
+                      />
+                    </Link>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 

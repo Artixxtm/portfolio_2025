@@ -106,7 +106,7 @@ const Projects = () => {
                     }}
                   >
                     {index === projects.length - 2 && (
-                      <div className="w-[150px] h-[50px] flex justify-center relative items-center text-center scale-[0.3] opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-[transform,scale,opacity] ease-[cubic-bezier(1,0.01,0.28,1)] duration-700 uppercase gap-4">
+                      <div className="w-[150px] h-[50px] flex justify-center relative items-center text-center sm:scale-[0.3] sm:opacity-0 opacity-100 scale-100 group-hover:scale-100 group-hover:opacity-100 transition-[transform,scale,opacity] ease-[cubic-bezier(1,0.01,0.28,1)] duration-700 uppercase gap-4">
                         <span className="mainFont2 z-[1] text-black">View</span>{" "}
                         <span className="mainFont2 z-[1] text-black inline-flex items-center">All<RiArrowRightUpLine size={18} /></span>
                         <div className="customBtnClip bg-[#fff947] w-full h-full absolute inset-0 z-[-1]"></div>

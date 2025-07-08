@@ -168,7 +168,7 @@ export const projects = [
     id: "8769780856746",
     title: "Norn",
     fullTitle: "Norn",
-    category: "Landing + App",
+    category: "Landing & App",
     date: "2025",
     src: "/projects/norn.jpg",
     link: "https://norn.world",
@@ -550,7 +550,7 @@ export const aboutInfo = [
             width={15}
             height={15}
             alt="mac"
-            className="object-contain"
+            className="object-contain w-auto h-auto"
           />
         ),
       },
