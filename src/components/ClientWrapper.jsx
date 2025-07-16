@@ -6,6 +6,7 @@ import "lenis/dist/lenis.css";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import useResponsive from "@/hooks/useResponsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ const Nav = dynamic(() => import("./Nav"), {
 
 export default function ClientWrapper({ children }) {
   const lenisRef = useRef(null);
+  const { isMobile } = useResponsive();
 
   useEffect(() => {
     ScrollTrigger.clearScrollMemory("manual");
@@ -47,22 +49,28 @@ export default function ClientWrapper({ children }) {
   return (
     <>
       <Nav />
-      <ReactLenis
-        root
-        ref={lenisRef}
-        autoRaf={false}
-        options={{
-          duration: 2,
-          easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-          direction: "vertical",
-          gestureDirection: "vertical",
-          smooth: true,
-          smoothTouch: true,
-          touchMultiplier: 2,
-        }}
-      >
+      {!isMobile ? (
+        <ReactLenis
+          root
+          ref={lenisRef}
+          autoRaf={false}
+          options={{
+            duration: 2,
+            easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+            direction: "vertical",
+            gestureDirection: "vertical",
+            smooth: true,
+            smoothTouch: true,
+            touchMultiplier: 2,
+          }}
+        >
+          <div className="content-holder w-full h-auto relative">
+            {children}
+          </div>
+        </ReactLenis>
+      ) : (
         <div className="content-holder w-full h-auto relative">{children}</div>
-      </ReactLenis>
+      )}
     </>
   );
 }

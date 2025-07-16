@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <meta property="og:image:alt" content="11Gen™ Banner" />
         <meta
           property="og:site_name"
-          content="Artem Naumenko – Fullstack Developer & Entrepreneur | 4+ Years of Experience in Building Scalable Web & Mobile Applications"
+          content="Artem Naumenko"
         />
         <meta
           content="I'm Artem Naumenko, a passionate fullstack developer and entrepreneur with over 4 years of experience in crafting high-performance web and mobile applications. Focused on innovation, performance, and user-centric design to help startups and businesses grow through technology."
