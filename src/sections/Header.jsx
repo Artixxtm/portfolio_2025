@@ -80,7 +80,7 @@ const Header = () => {
           >
             <LinkButton
               text={`Download ${!isTablet ? "my" : ""} CV`}
-              link={"#"}
+              link={"/Artem Naumenko - Fullstack developer.pdf"}
               download={true}
               dotColor={"#99ff59"}
             />

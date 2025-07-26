@@ -91,7 +91,7 @@ const Projects = () => {
                 </div>
 
                 {/* Image center */}
-                {projects.slice(2).map(({ src, id, title }, index) => (
+                {projects.slice(2).filter(proj => proj.id !== "6564" && proj.id !== "87695453456780856746").map(({ src, id, title }, index) => (
                   <Link
                     href={
                       index === projects.slice(2).length - 1

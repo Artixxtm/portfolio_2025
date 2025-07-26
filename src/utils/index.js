@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 
 export const projects = [
-    {
+  {
     id: "11211",
     title: "FreeFusion Academy",
     fullTitle: "FreeFusion Academy",
@@ -53,6 +53,18 @@ export const projects = [
     textColor: "#fff",
   },
   {
+    id: "6564",
+    title: "Campay",
+    fullTitle: "Campay Travel",
+    category: "Landing",
+    date: "2024",
+    src: "/projects/campay.jpg",
+    link: "https://campay.netlify.app",
+    description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
+    mainColor: "#000",
+    textColor: "#fff",
+  },
+  {
     id: "12131314511",
     title: "Samurai's Odyssey",
     fullTitle: "Samurai's Odyssey",
@@ -77,6 +89,18 @@ export const projects = [
     description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
     mainColor: "rgb(236, 255, 103)",
     textColor: "#000",
+  },
+  {
+    id: "87695453456780856746",
+    title: "BuyBitArt",
+    fullTitle: "BuyBitArt Ecommerce",
+    category: "Ecommerce",
+    date: "2025",
+    src: "/projects/buybitart.jpg",
+    link: "https://buybitart.com",
+    description: `A fully responsive landing page built with Next.js and Tailwind CSS. Features GSAP-powered eye-catching animations and full performance optimization.`,
+    mainColor: "#000",
+    textColor: "#fff",
   },
   {
     id: "876956780856746",
