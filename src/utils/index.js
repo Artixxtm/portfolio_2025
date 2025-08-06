@@ -153,6 +153,13 @@ export const aboutInfo = [
     title: "Experience",
     jobs: [
       {
+        company: "Kyron",
+        link: "https://kyron.digital",
+        position: "Founder & CEO",
+        logo: "/experience/kyron.jpg",
+        date: "Aug 2025 - Present",
+      },
+      {
         company: "11Gen",
         link: "https://elevengen.com",
         position: "Founder & CEO",
