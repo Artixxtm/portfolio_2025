@@ -230,7 +230,7 @@ const Nav = () => {
               />
             </p>
             <div className="flex flex-col text-right">
-              <a href="https://www.linkedin.com/in/artixx/" target="_blank">
+              <a href="https://www.linkedin.com/in/artemnaumenko/" target="_blank">
                 <DecryptedText text="LinkedIn" animateOn="hover" />
               </a>
               <a href="https://github.com/Artixxtm/" target="_blank">
