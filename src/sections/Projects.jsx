@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import imagesLoaded from "imagesloaded";
-import { projects } from "@/utils";
+import { projects, selectedProjects } from "@/utils";
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 
@@ -91,10 +91,10 @@ const Projects = () => {
                 </div>
 
                 {/* Image center */}
-                {projects.slice(2).filter(proj => proj.id !== "6564" && proj.id !== "87695453456780856746").map(({ src, id, title }, index) => (
+                {selectedProjects.map(({ src, id, title }, index) => (
                   <Link
                     href={
-                      index === projects.slice(2).filter(proj => proj.id !== "6564" && proj.id !== "87695453456780856746").length - 1
+                      index === selectedProjects.length - 1
                         ? "/projects"
                         : `/projects/${title.toLowerCase()}`
                     }
@@ -105,7 +105,7 @@ const Projects = () => {
                       backgroundImage: `url(${src})`,
                     }}
                   >
-                    {index === projects.slice(2).filter(proj => proj.id !== "6564" && proj.id !== "87695453456780856746").length - 1 && (
+                    {index === selectedProjects.length - 1 && (
                       <div className="w-[150px] h-[50px] flex justify-center relative items-center text-center sm:scale-[0.3] sm:opacity-0 opacity-100 scale-100 group-hover:scale-100 group-hover:opacity-100 transition-[transform,scale,opacity] ease-[cubic-bezier(1,0.01,0.28,1)] duration-700 uppercase gap-4">
                         <span className="mainFont2 z-[1] text-black">View</span>{" "}
                         <span className="mainFont2 z-[1] text-black inline-flex items-center">All<RiArrowRightUpLine size={18} /></span>
